@@ -1,0 +1,17 @@
+package tn.esprit.esprittwin.Service;
+
+import tn.esprit.esprittwin.Entity.Etudiant;
+
+import java.util.List;
+
+public interface Ietudiantservice {
+    List<Etudiant> retrieveAllEtudiants();
+
+    Etudiant addEtudiant(Etudiant e);
+
+    Etudiant updateEtudiant(Etudiant e);
+
+    Etudiant retrieveEtudiant(Long idEtudiant);
+
+    void removeEtudiant(Long idEtudiant);
+}

@@ -15,7 +15,7 @@ public class Chambre implements Serializable{
 
     private Long numeroChambre;
     @Enumerated(EnumType.STRING)
-    private TypeChambre Typec;
+    private TypeChambre typec;
     @ManyToOne
     private Bloc bloc;
     @OneToMany(cascade = CascadeType.ALL)
