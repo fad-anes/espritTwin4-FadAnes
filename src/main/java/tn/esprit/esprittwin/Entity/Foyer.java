@@ -1,4 +1,5 @@
 package tn.esprit.esprittwin.Entity;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,17 +13,18 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table( name = "Foyer")
 public class Foyer implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name="idFoyer")
-    private Long idFoyer;
-    private String nomFoyer;
-    private Long capaciteFoyer;
+    @Column(name="idfoyer")
+    private Long idfoyer;
+    private String nomfoyer;
+    private Long capacitefoyer;
     private boolean archived = false;
-    @OneToOne(mappedBy = "foyer")
+    @OneToOne(fetch = FetchType.EAGER,mappedBy = "foyer")
     private Universte universte;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy="foyer")
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL, mappedBy="foyer")
     private Set<Bloc> blocs;
 }

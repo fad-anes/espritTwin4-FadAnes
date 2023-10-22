@@ -37,6 +37,6 @@ public class Etudiantserviceimpl implements Ietudiantservice{
 
     @Override
     public List<Etudiant> addEtudiants(List<Etudiant> etudiants) {
-        return null;
+        return etrepo.saveAll(etudiants);
     }
 }

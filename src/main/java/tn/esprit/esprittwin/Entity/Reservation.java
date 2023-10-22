@@ -15,11 +15,11 @@ import java.util.Set;
 @Table( name = "Reservation")
 public class Reservation implements Serializable{
     @Id
-    @Column(name="idReservation")
-    private String idReservation;
-    private Boolean estValide;
+    @Column(name="idreservation")
+    private String idreservation;
+    private Boolean estvalide;
     @Temporal(TemporalType.DATE)
-    private Date anneeUniversitaire;
+    private Date anneeuniversitaire;
     @ManyToMany(mappedBy="reservations",cascade = CascadeType.ALL)
     private Set<Etudiant> etudiants;
 }

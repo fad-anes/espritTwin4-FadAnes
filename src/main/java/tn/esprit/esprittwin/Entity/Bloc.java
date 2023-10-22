@@ -15,10 +15,10 @@ import java.util.Set;
 public class Bloc implements Serializable{
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name="idBloc")
-    private Long idBloc;
-    private String nomBloc;
-    private Long capaciteBloc;
+    @Column(name="idbloc")
+    private Long idbloc;
+    private String nombloc;
+    private Long capacitebloc;
     @ManyToOne
     private Foyer foyer;
     @OneToMany(cascade = CascadeType.ALL, mappedBy="bloc")

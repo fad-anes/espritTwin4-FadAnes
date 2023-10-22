@@ -10,19 +10,19 @@ import java.util.List;
 @Repository
 public interface chambrerepository extends JpaRepository<Chambre, Long> {
 
-    List<Chambre> findByBlocIdBlocAndTypec(Long id , String DOUBLE);
+    List<Chambre> findByBlocIdblocAndTypec(Long id , String DOUBLE);
 
-    List<Chambre> findByReservationsEstValide(Boolean a);
+    List<Chambre> findByReservationsEstvalide(Boolean a);
 
-    List<Chambre> findByBlocIdBlocAndBlocCapaciteBlocGreaterThan(Long id ,Long cap);
+    List<Chambre> findByBlocIdblocAndBlocCapaciteblocGreaterThan(Long id ,Long cap);
 
-    @Query("SELECT c FROM Chambre c WHERE c.typec = :type AND c.bloc.nomBloc = :nom")
+    @Query("SELECT c FROM Chambre c WHERE c.typec = :type AND c.bloc.nombloc = :nom")
     List<Chambre> RetrieveChambreByTypeAndBloc(@Param("type") String type, @Param("nom") String nom);
 
-    @Query("SELECT c FROM Chambre c WHERE NOT EXISTS (SELECT r FROM c.reservations r WHERE r.estValide = false)")
+    @Query("SELECT c FROM Chambre c WHERE NOT EXISTS (SELECT r FROM c.reservations r WHERE r.estvalide = false)")
     List<Chambre> RetrieveChambreByValidationReservation(@Param("estValide") Boolean estValide);
 
-    @Query("SELECT c FROM Chambre c WHERE c.bloc.nomBloc = :nom AND c.bloc.capaciteBloc > :capacite")
+    @Query("SELECT c FROM Chambre c WHERE c.bloc.nombloc = :nom AND c.bloc.capacitebloc > :capacite")
     List<Chambre> RetrieveChambresByBlocAndCapacite(@Param("nom") String nom, @Param("capacite") Long capacite);
 
 }

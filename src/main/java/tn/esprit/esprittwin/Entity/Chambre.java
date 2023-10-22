@@ -16,8 +16,8 @@ import java.util.Set;
 public class Chambre implements Serializable{
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name="idChambre")
-    private Long idChambre;
+    @Column(name="idchambre")
+    private Long idchambre;
 
     private Long numeroChambre;
     @Enumerated(EnumType.STRING)
