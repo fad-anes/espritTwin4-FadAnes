@@ -1,11 +1,17 @@
 package tn.esprit.esprittwin.Entity;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 @Table( name = "Foyer")
 public class Foyer implements Serializable {
     @Id
@@ -14,6 +20,7 @@ public class Foyer implements Serializable {
     private Long idFoyer;
     private String nomFoyer;
     private Long capaciteFoyer;
+    private boolean archived = false;
     @OneToOne(mappedBy = "foyer")
     private Universte universte;
     @OneToMany(cascade = CascadeType.ALL, mappedBy="foyer")

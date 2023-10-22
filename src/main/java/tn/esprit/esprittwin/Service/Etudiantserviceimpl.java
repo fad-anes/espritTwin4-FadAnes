@@ -34,4 +34,9 @@ public class Etudiantserviceimpl implements Ietudiantservice{
     public void removeEtudiant(Long idEtudiant) {
         etrepo.deleteById(idEtudiant);
     }
+
+    @Override
+    public List<Etudiant> addEtudiants(List<Etudiant> etudiants) {
+        return null;
+    }
 }

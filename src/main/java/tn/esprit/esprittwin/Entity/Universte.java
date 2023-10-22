@@ -1,10 +1,16 @@
 package tn.esprit.esprittwin.Entity;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 @Table( name = "Universte")
 public class Universte implements Serializable{
     @Id
