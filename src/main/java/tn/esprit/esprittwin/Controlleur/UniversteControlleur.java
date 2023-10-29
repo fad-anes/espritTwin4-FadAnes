@@ -2,7 +2,6 @@ package tn.esprit.esprittwin.Controlleur;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.esprittwin.Entity.Etudiant;
 import tn.esprit.esprittwin.Entity.Universte;
 import tn.esprit.esprittwin.Service.UniversteServiceimpl;
 
@@ -42,5 +41,15 @@ public class UniversteControlleur {
     @DeleteMapping("/DeleteUniversty/{id}")
     public void DeleteUniversty(@PathVariable("id") Long id) {
         UniverstyService.removeUniversity(id);
+    }
+
+    @PutMapping("/affecterFoyerAUniversite/{id}/{nom}")
+    public Universte affecterFoyerAUniversite(@PathVariable("id") Long id,@PathVariable("nom") String nom){
+        return UniverstyService.affecterFoyerAUniversite(id,nom);
+    }
+
+    @PutMapping("/desaffecterFoyerAUniversite/{idf}/{idu}")
+    public Universte affecterFoyerAUniversite(@PathVariable("idf") Long idf,@PathVariable("idu") Long idu){
+        return UniverstyService.desaffecterFoyerAUniversite(idf,idu);
     }
 }

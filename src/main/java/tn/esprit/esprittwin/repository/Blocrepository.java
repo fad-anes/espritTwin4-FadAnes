@@ -11,6 +11,7 @@ import java.util.List;
 public interface Blocrepository extends JpaRepository<Bloc, Long> {
 
     List<Bloc> findByFoyerUniversteNomuniverste(String nomUniverste);
+    Bloc findByNombloc(String nom);
     @Query("SELECT b FROM Bloc b WHERE b.foyer.universte.nomuniverste =?1")
     List<Bloc> RetrieveBlocbyuniverste(String nom);
 }

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 import tn.esprit.esprittwin.Entity.Chambre;
 
 import java.util.List;
+import java.util.Optional;
+
 @Repository
 public interface chambrerepository extends JpaRepository<Chambre, Long> {
 
@@ -15,6 +17,8 @@ public interface chambrerepository extends JpaRepository<Chambre, Long> {
     List<Chambre> findByReservationsEstvalide(Boolean a);
 
     List<Chambre> findByBlocIdblocAndBlocCapaciteblocGreaterThan(Long id ,Long cap);
+
+    Optional<Chambre> findByNumeroChambre(Long i);
 
     @Query("SELECT c FROM Chambre c WHERE c.typec = :type AND c.bloc.nombloc = :nom")
     List<Chambre> RetrieveChambreByTypeAndBloc(@Param("type") String type, @Param("nom") String nom);

@@ -5,4 +5,6 @@ import org.springframework.stereotype.Repository;
 import tn.esprit.esprittwin.Entity.Universte;
 @Repository
 public interface Universiterepository extends JpaRepository<Universte, Long> {
+
+    Universte findByNomuniverste(String nom);
 }
