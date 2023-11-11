@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.esprittwin.Entity.Bloc;
 import tn.esprit.esprittwin.Entity.Chambre;
+import tn.esprit.esprittwin.Entity.Reservation;
+import tn.esprit.esprittwin.Entity.TypeChambre;
 import tn.esprit.esprittwin.repository.Blocrepository;
 import tn.esprit.esprittwin.repository.chambrerepository;
 
@@ -39,6 +41,12 @@ public class blocserviceimpl implements interfaceblocService{
     @Override
     public void removeBloc(long idbloc) {
         Blocrepository.deleteById(idbloc);
+    }
+
+    @Override
+    public long nbChambreParTypeEtBloc(TypeChambre type, long idBloc) {
+
+        return Blocrepository.countChambresByIdblocAndChambresTypec(idBloc,type) ;
     }
 
 

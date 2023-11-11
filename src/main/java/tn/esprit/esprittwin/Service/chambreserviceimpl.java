@@ -74,4 +74,9 @@ public class chambreserviceimpl implements inyterfacechambreService{
         }
         return null;
     }
+
+    @Override
+    public List<Chambre> getChambresParNomBloc(String nomBloc) {
+        return chambrerepository.findByBlocNombloc(nomBloc);
+    }
 }

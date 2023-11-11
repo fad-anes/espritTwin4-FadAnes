@@ -1,5 +1,6 @@
 package tn.esprit.esprittwin.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,7 +9,6 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -26,5 +26,6 @@ public class Foyer implements Serializable {
     @OneToOne(fetch = FetchType.EAGER,mappedBy = "foyer")
     private Universte universte;
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL, mappedBy="foyer")
+    @JsonManagedReference
     private Set<Bloc> blocs;
 }

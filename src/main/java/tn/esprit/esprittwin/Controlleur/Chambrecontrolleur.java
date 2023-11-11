@@ -48,4 +48,9 @@ public class Chambrecontrolleur {
     public Bloc affecterChambresABloc(@PathVariable("nom") String nom, @RequestBody List<Long> c) {
         return chambreserviceimpl.affecterChambresABloc(c,nom);
     }
+
+    @PutMapping("/getChambresParNomBloc/{nom}")
+    public List<Chambre> getChambresParNomBloc(@PathVariable("nom") String nom) {
+        return chambreserviceimpl.getChambresParNomBloc(nom);
+    }
 }

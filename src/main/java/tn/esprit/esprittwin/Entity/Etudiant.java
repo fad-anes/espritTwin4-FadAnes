@@ -1,4 +1,5 @@
 package tn.esprit.esprittwin.Entity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
@@ -9,7 +10,6 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -28,5 +28,6 @@ public class Etudiant implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date datenaissance;
     @ManyToMany( fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JsonBackReference
     private Set<Reservation> reservations;
 }

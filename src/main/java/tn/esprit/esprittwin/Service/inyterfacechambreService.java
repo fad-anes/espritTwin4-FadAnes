@@ -14,4 +14,5 @@ public interface inyterfacechambreService {
     void removeChambre  (long idchambre );
 
     Bloc affecterChambresABloc (List<Long> numChambre, String nomBloc) ;
+     List<Chambre> getChambresParNomBloc ( String nomBloc );
 }

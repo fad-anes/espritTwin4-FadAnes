@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.esprittwin.Entity.Bloc;
 import tn.esprit.esprittwin.Entity.Chambre;
+import tn.esprit.esprittwin.Entity.TypeChambre;
 import tn.esprit.esprittwin.Entity.Universte;
 import tn.esprit.esprittwin.Service.UniversteServiceimpl;
 import tn.esprit.esprittwin.Service.blocserviceimpl;
@@ -46,5 +47,8 @@ public class BlocControlleur {
         blocserviceimpl.removeBloc(id);
     }
 
-
+    @PutMapping("/nbChambreParTypeEtBloc/{type}/{idBloc}")
+    public Long nbChambreParTypeEtBloc(@PathVariable("type") TypeChambre type,@PathVariable("idBloc") Long idBloc){
+        return blocserviceimpl.nbChambreParTypeEtBloc(type,idBloc);
+    }
 }

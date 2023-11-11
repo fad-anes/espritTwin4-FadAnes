@@ -1,4 +1,6 @@
 package tn.esprit.esprittwin.Entity;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,6 +14,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table( name = "Reservation")
 public class Reservation implements Serializable{
     @Id
@@ -21,5 +24,6 @@ public class Reservation implements Serializable{
     @Temporal(TemporalType.DATE)
     private Date anneeuniversitaire;
     @ManyToMany(mappedBy="reservations",cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Set<Etudiant> etudiants;
 }

@@ -1,4 +1,5 @@
 package tn.esprit.esprittwin.Entity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
@@ -7,11 +8,12 @@ import java.io.Serializable;
 import java.util.Set;
 
 @Entity
-@Data
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table( name = "Bloc")
 public class Bloc implements Serializable{
     @Id
@@ -21,10 +23,8 @@ public class Bloc implements Serializable{
     private String nombloc;
     private Long capacitebloc;
     @ManyToOne
+    @JsonBackReference
     private Foyer foyer;
     @OneToMany(cascade = CascadeType.ALL, mappedBy="bloc")
     private Set<Chambre> chambres;
-
-
-
 }

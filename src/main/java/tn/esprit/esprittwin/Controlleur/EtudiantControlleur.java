@@ -46,4 +46,9 @@ public class EtudiantControlleur {
     public List<Etudiant> AddListstudent(@RequestBody List<Etudiant> etudiants){
         return EtudiantService.addEtudiants(etudiants);
     }
+
+    @GetMapping("/affecterEtudiantAReservation/{nom}/{prenom}/{id}")
+    public Etudiant affecterEtudiantAReservation(@PathVariable("nom") String nom,@PathVariable("prenom") String prenom,@PathVariable("id") String id) {
+        return EtudiantService.affecterEtudiantAReservation(nom,prenom,id);
+    }
 }
