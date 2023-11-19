@@ -26,7 +26,7 @@ public class Chambre implements Serializable{
     @JsonIgnore
     @ManyToOne
     private Bloc bloc;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private Set<Reservation> reservations;
 
 }

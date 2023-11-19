@@ -15,4 +15,7 @@ public interface inyterfacechambreService {
 
     Bloc affecterChambresABloc (List<Long> numChambre, String nomBloc) ;
      List<Chambre> getChambresParNomBloc ( String nomBloc );
+    void listeChambresParBloc();
+    void pourcentageChambreParTypeChambre();
+    void nbPlacesDisponibleParChambreAnneeEnCours();
 }
